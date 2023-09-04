@@ -1,0 +1,38 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend
+    container_name: ccs-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  backend:
+    build: ./backend
+    container_name: ccs-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=database
+    env_file:
+      - .backend.env
+    depends_on:
+      - database
+  database:
+    image: postgres:15.3-alpine
+    restart: always
+    container_name: ccs-database
+    env_file:
+      - .database.env
+    volumes:
+      - ./sqlscript/initUser.sql:/docker-entrypoint-initdb.d/initUser.sql
+      - ./sqlscript/initTables.sql:/docker-entrypoint-initdb.d/initTables.sql
+      - ./database:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    container_name: ccs-adminer
+    restart: always
+    ports:
+      - 8081:8080
