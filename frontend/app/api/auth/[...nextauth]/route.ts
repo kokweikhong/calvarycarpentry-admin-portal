@@ -48,8 +48,8 @@ const handler = NextAuth({
       },
     }),
   ],
-  // secret: process.env.NEXTAUTH_SECRET,
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
+  // secret: process.env.SECRET,
   pages: {
     signIn: "/users/auth/signin",
     signOut: "/users/auth/signout",

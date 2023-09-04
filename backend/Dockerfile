@@ -17,7 +17,7 @@ COPY . .
 RUN go build -o app
 
 # Expose the port your Golang API will listen on (change if needed)
-EXPOSE 8000
+EXPOSE 8080
 
 # Command to run the Golang API application
 CMD ["./app"]

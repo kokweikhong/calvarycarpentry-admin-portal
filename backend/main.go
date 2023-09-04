@@ -69,7 +69,7 @@ func main() {
 
 	users.SetupRouter(router, db)
 
-	fmt.Println("Server is running on port 8000")
+	fmt.Println("Server is running on port 8080")
 
-	router.Run(":8000")
+	router.Run(":8080")
 }
