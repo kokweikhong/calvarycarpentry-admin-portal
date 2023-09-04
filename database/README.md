@@ -17,3 +17,9 @@ docker run --name some-postgres -v /path/to/your/init.sql:/docker-entrypoint-ini
 ```
 
 In this command, replace `/path/to/your/init.sql`, `/my/own/datadir`, `/path/to/your/.env`, and `postgres:tag` with your own values.
+
+### Restore Database
+
+```bash
+cat your_dump.sql | docker exec -i your-db-container psql -U your-db-user -d your-db-name
+```
