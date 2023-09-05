@@ -105,24 +105,27 @@ export const InventoryProductColumns = ({
         id: "product-thumbnail",
         header: () => null,
         cell: ({ cell }) => (
-          <Button
-            variant={"link"}
-            className="p-0 hover:text-blue-500"
-            onClick={() => {
-              setImageDialogOpen(true);
-              if (setImageDialogData) {
-                setImageDialogData({
-                  title: "Product Thumbnail",
-                  image: {
-                    src: `${HOST_UPLOADS}/${cell.row.original.productThumbnail}`,
-                    alt: "thumbnail",
-                  },
-                });
-              }
-            }}
-          >
+          // <Button
+          //   variant={"link"}
+          //   className="p-0 hover:text-blue-500"
+          //   onClick={() => {
+          //     setImageDialogOpen(true);
+          //     if (setImageDialogData) {
+          //       console.log(HOST_UPLOADS, cell.row.original.productThumbnail);
+          //       setImageDialogData({
+          //         title: "Product Thumbnail",
+          //         image: {
+          //           src: `${HOST_UPLOADS}/${cell.row.original.productThumbnail}`,
+          //           alt: "thumbnail",
+          //         },
+          //       });
+          //     }
+          //   }}
+          // >
+          <Link href={`${HOST_UPLOADS}/${cell.row.original.productThumbnail}`}>
             <ImageIcon size={18} />
-          </Button>
+          </Link>
+          // </Button>
         ),
       },
       {
