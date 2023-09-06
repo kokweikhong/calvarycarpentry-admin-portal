@@ -68,21 +68,58 @@ CREATE TABLE IF NOT EXISTS inventory_outgoing (
 );
 
 CREATE OR REPLACE VIEW inventory_products_summary AS
-SELECT 
-    p.*,
-    COALESCE(SUM(i.converted_quantity), 0) AS sum_incoming_converted_quantity,
-    COALESCE(SUM(i.cost), 0) AS sum_incoming_cost,
-    COALESCE(SUM(o.converted_quantity), 0) AS sum_outgoing_converted_quantity,
-    COALESCE(SUM(o.cost), 0) AS sum_outgoing_cost,
-    COALESCE(SUM(i.converted_quantity), 0) - COALESCE(SUM(o.converted_quantity), 0) AS available_quantity
-FROM 
-    inventory_products p
-LEFT JOIN 
-    inventory_incoming i ON p.id = i.product_id
-LEFT JOIN 
-    inventory_outgoing o ON i.id = o.incoming_id
-GROUP BY 
-    p.id;
+SELECT p.id,
+    p.product_code,
+    p.product_name,
+    p.brand,
+    p.standard_unit,
+    p.product_thumbnail,
+    p.supplier,
+    p.remarks,
+    p.is_exist,
+    p.created_by,
+    p.created_at,
+    p.updated_by,
+    p.updated_at,
+    COALESCE(sum(i.converted_quantity), (0)::numeric) AS sum_incoming_converted_quantity,
+    COALESCE(sum(i.cost), (0)::numeric) AS sum_incoming_cost,
+    COALESCE(sum(o.converted_quantity), (0)::numeric) AS sum_outgoing_converted_quantity,
+    COALESCE(sum(o.cost), (0)::numeric) AS sum_outgoing_cost,
+    (COALESCE(sum(i.converted_quantity), (0)::numeric) - COALESCE(sum(o.converted_quantity), (0)::numeric)) AS available_quantity
+   FROM 
+     inventory_products p
+   JOIN 
+     inventory_incoming i ON i.product_id = p.id
+   LEFT JOIN (
+    SELECT
+        i.id AS incoming_id,
+        SUM(io.converted_quantity) AS converted_quantity,
+        SUM(io.cost) AS cost
+    FROM
+        inventory_incoming i
+    LEFT JOIN
+        inventory_outgoing io ON i.id = io.incoming_id
+    GROUP BY
+        i.id
+) o ON i.id = o.incoming_id
+  GROUP BY p.id;
+
+-- CREATE OR REPLACE VIEW inventory_products_summary AS
+-- SELECT 
+--     p.*,
+--     COALESCE(SUM(i.converted_quantity), 0) AS sum_incoming_converted_quantity,
+--     COALESCE(SUM(i.cost), 0) AS sum_incoming_cost,
+--     COALESCE(SUM(o.converted_quantity), 0) AS sum_outgoing_converted_quantity,
+--     COALESCE(SUM(o.cost), 0) AS sum_outgoing_cost,
+--     COALESCE(SUM(i.converted_quantity), 0) - COALESCE(SUM(o.converted_quantity), 0) AS available_quantity
+-- FROM 
+--     inventory_products p
+-- LEFT JOIN 
+--     inventory_incoming i ON p.id = i.product_id
+-- LEFT JOIN 
+--     inventory_outgoing o ON i.id = o.incoming_id
+-- GROUP BY 
+--     p.id;
 
 CREATE OR REPLACE VIEW inventory_incoming_summary AS
 SELECT 
