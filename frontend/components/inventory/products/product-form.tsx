@@ -67,6 +67,7 @@ const standardUnits = [
   { value: "kg", label: "Kilogram" },
   { value: "g", label: "Gram" },
   { value: "l", label: "Liter" },
+  { value: "pcs", label: "Pieces" },
 ];
 
 export type ProductFormProps = {
