@@ -10,6 +10,14 @@ import DataTable from "@/components/table/data-table";
 import { Edit, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 import { useGetUsers } from "@/lib/query/users";
 import { DataNotFound } from "@/components/data-not-found";
@@ -108,7 +116,7 @@ export default function Page() {
         <h1 className="tracking-wider">Users Page</h1>
         <Link
           href={"users/form/create"}
-          className="px-4 py-2 rounded-md text-center font-medium text-primary-foreground bg-primary hover:bg-primary/90 uppercase"
+          className="px-4 py-2 font-medium text-center uppercase rounded-md text-primary-foreground bg-primary hover:bg-primary/90"
         >
           Create New User
         </Link>
@@ -119,7 +127,14 @@ export default function Page() {
           {!dataUsers ? (
             <DataNotFound />
           ) : (
-            <DataTable columns={columns} data={dataUsers} />
+            <Card>
+              <CardHeader>
+                <CardTitle>Users Table</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <DataTable columns={columns} data={dataUsers} />
+              </CardContent>
+            </Card>
           )}
         </div>
       ) : (

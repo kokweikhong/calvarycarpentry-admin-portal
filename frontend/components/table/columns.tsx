@@ -25,6 +25,15 @@ import {
 } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { HOST_UPLOADS } from "@/types/environment-variables";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import Image from "next/image";
 
 export interface InventoryProductColumnsProps {
   setImageDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -105,26 +114,36 @@ export const InventoryProductColumns = ({
         id: "product-thumbnail",
         header: () => null,
         cell: ({ cell }) => (
-          // <Button
-          //   variant={"link"}
-          //   className="p-0 hover:text-blue-500"
-          //   onClick={() => {
-          //     setImageDialogOpen(true);
-          //     if (setImageDialogData) {
-          //       console.log(HOST_UPLOADS, cell.row.original.productThumbnail);
-          //       setImageDialogData({
-          //         title: "Product Thumbnail",
-          //         image: {
-          //           src: `${HOST_UPLOADS}/${cell.row.original.productThumbnail}`,
-          //           alt: "thumbnail",
-          //         },
-          //       });
-          //     }
-          //   }}
+          <Dialog>
+            <DialogTrigger>
+              <ImageIcon size={18} className="text-blue-500" />
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>{`${cell.row.original.productCode} | ${cell.row.original.productName}`}</DialogTitle>
+                <DialogDescription>
+                  <div className="relative w-full h-[300px]">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_API_HOST}/${cell.row.original.productThumbnail}`}
+                      alt="product thumnail"
+                      fill
+                      style={{
+                        objectFit: "contain",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+          // <Link
+          //   target="_blank"
+          //   href={`${HOST_UPLOADS}/${cell.row.original.productThumbnail}`}
           // >
-          <Link href={`${HOST_UPLOADS}/${cell.row.original.productThumbnail}`}>
-            <ImageIcon size={18} />
-          </Link>
+          //   <ImageIcon size={18} />
+          // </Link>
           // </Button>
         ),
       },
@@ -287,8 +306,9 @@ export const InventoryIncomingColumns =
           accessorKey: "refDoc",
           cell: ({ cell }) => (
             <Link
-              href={`${HOST_UPLOADS}/${cell.row.original.refDoc}`}
+              href={`${process.env.NEXT_PUBLIC_API_HOST}/${cell.row.original.refDoc}`}
               className="text-blue-500"
+              target="_blank"
             >
               <PaperclipIcon size={18} />
             </Link>
@@ -506,8 +526,9 @@ export const InventoryOutgoingColumns =
           accessorKey: "refDoc",
           cell: ({ cell }) => (
             <Link
-              href={`${HOST_UPLOADS}/${cell.row.original.refDoc}`}
+              href={`${process.env.NEXT_PUBLIC_API_HOST}/${cell.row.original.refDoc}`}
               className="text-blue-500"
+              target="_blank"
             >
               <PaperclipIcon size={18} />
             </Link>

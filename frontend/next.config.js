@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "http://146.190.87.142:8000"],
+    domains: [
+      "localhost",
+      "http://146.190.87.142:8000",
+      "api.calvarycarpentry.org",
+    ],
     remotePatterns: [
       {
         protocol: "http",
