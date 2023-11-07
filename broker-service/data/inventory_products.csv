@@ -1,0 +1,8 @@
+id,product_code,product_name,brand,standard_unit,product_thumbnail,supplier,remarks,is_exist,created_by,created_at,updated_by,updated_at
+4,CC001,Composite Ivory/Rum,Calvary Composite,sqm,uploads/inventory/products/4eb9480e-10d9-4918-a63b-5c23c2972b77.jpeg,U-Timber (China),"",t,Khong Kok Wei,2023-08-25 03:08:03.25375,Khong Kok Wei,2023-08-25 03:08:03.25375
+6,KL.3513,KLite Natural Walnut,Kandinsky Lite,sqm,uploads/inventory/products/316c1373-c42b-4013-ab09-1a20b615fe64.jpeg,LJX (Stephen China),"",t,Khong Kok Wei,2023-08-25 03:50:54.954698,Khong Kok Wei,2023-08-25 03:50:54.954698
+7,KL.8316,KLite Milled Oak,Kandinsky Lite,sqm,uploads/inventory/products/d38c4521-3e3d-42db-82d0-262d182d80c0.jpeg,LJX (Stephen China),"",t,Khong Kok Wei,2023-08-25 03:52:30.960384,Khong Kok Wei,2023-08-25 03:52:30.960384
+8,KL.F356,KLite Glacier Ash,Kandinsky Lite,sqm,uploads/inventory/products/669673fc-6636-434b-8b5d-1c6b4982262b.jpeg,LJX (Stephen China),"",t,Khong Kok Wei,2023-08-25 03:53:12.147569,Khong Kok Wei,2023-08-25 03:53:12.147569
+9,R001,Rapid Multifixer Adhesive,Rapid,l,uploads/inventory/products/6ded5cde-09dc-42d1-9610-523da2efca8c.PNG,Shandong Sinolinking Industry,300ml,t,Khong Kok Wei,2023-08-25 05:47:25.133516,Khong Kok Wei,2023-08-25 05:47:25.133516
+10,R002,Rapid Multifixer Adhesive,Rapid,l,uploads/inventory/products/d8b54d6f-a675-441f-b043-a5233f2785e1.jpeg,Shandong Sinolinking Industry,600ml,t,Khong Kok Wei,2023-08-25 05:52:55.966467,Khong Kok Wei,2023-08-25 05:52:55.966467
+5,KL.8529,KLite Cream Oak,Kandinsky Lite,sqm,uploads/inventory/products/1f8301cb-bbe2-4092-97c1-18c61dfe418a.jpeg,LJX (Stephen China),"",t,Khong Kok Wei,2023-08-25 03:50:03.14398,Mylene,2023-08-25 03:50:03.14398

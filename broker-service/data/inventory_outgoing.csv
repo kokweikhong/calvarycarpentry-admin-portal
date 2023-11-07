@@ -1,0 +1,9 @@
+id,incoming_id,status,quantity,converted_quantity,cost,ref_no,ref_doc,remarks,created_by,created_at,updated_by,updated_at
+3,4,collected,9.8615,9.8615,269.02172,JO-23001,uploads/inventory/outgoing/7c173730-d58a-45ac-8706-c5a575d3dd3d.jpeg,marina square showroom (calvary),Mylene,2023-09-06 08:27:50.406116,Mylene,2023-09-06 08:27:50.406116
+5,4,collected,230.7591,230.7591,6295.108248,JO-23001,uploads/inventory/outgoing/351db064-a206-4061-8e0c-5f1aac588ec5.jpeg,marina square showroom (calvary),Mylene,2023-09-21 07:18:13.729706,Mylene,2023-09-21 07:35:26.040806
+6,4,collected,49.1385,49.1385,"0",JO-23003,uploads/inventory/outgoing/de1c5a67-ccdf-48b7-9412-9194cccb5c42.jpeg,marina square showroom (calvary),Mylene,2023-10-04 06:23:45.108441,Mylene,2023-10-04 06:25:49.763511
+7,5,collected,40.656,40.656,1109.09568,JO-23004,uploads/inventory/outgoing/1026657e-3367-48fa-8f38-1ae26a80b0f8.jpeg,marina square showroom (calvary) - table & panels,Mylene,2023-10-26 03:06:17.294015,Mylene,2023-10-26 03:06:17.294015
+8,3,collected,1.344,1.344,53.760000000000005,sample,uploads/inventory/outgoing/82cabb66-54fd-4d55-b195-9c4a5c1b4576.jpeg,sample,Mylene,2023-10-26 06:15:42.092106,Mylene,2023-10-26 06:15:42.092106
+9,3,collected,10.08,10.08,403.2,CC-X05268,uploads/inventory/outgoing/df4a2511-6a66-44ba-afc4-29bb72b6d98a.pdf,supply only,Mylene,2023-10-26 06:25:37.495622,Mylene,2023-10-26 06:25:37.495622
+10,3,collected,5.376,5.376,215.04000000000002,PI-C1256,uploads/inventory/outgoing/bc6e19a0-ad37-41e0-b01e-2a13377f4c7f.pdf,group buy (vanessa),Mylene,2023-10-26 06:33:30.392687,Mylene,2023-10-26 06:33:30.392687
+11,3,collected,15.792,15.792,631.68,CC-X05290,uploads/inventory/outgoing/9107fa46-0863-41fa-819e-1aef761a3427.pdf,additional 1 pc deck we release for defect as per Ruben's instruction,Mylene,2023-10-26 06:56:12.006201,Mylene,2023-10-26 06:56:12.006201
