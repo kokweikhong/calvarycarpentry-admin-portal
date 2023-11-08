@@ -18,6 +18,22 @@ export const InventoryProductSchema = z.object({
 
 export type InventoryProduct = z.infer<typeof InventoryProductSchema>;
 
+export const emptyInventoryProduct: InventoryProduct = {
+  id: 0,
+  productCode: "",
+  productName: "",
+  brand: "",
+  standardUnit: "",
+  productThumbnail: "",
+  supplier: "",
+  remarks: "",
+  isExist: true,
+  createdBy: "",
+  createdAt: "",
+  updatedBy: "",
+  updatedAt: "",
+};
+
 export const mockInventoryProducts: InventoryProduct[] = [
   {
     id: 1,
