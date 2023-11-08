@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import { usePathname } from "next/navigation";
+
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import {
   CalendarIcon,
@@ -26,14 +28,15 @@ import { useSidebar } from "@/context/SidebarContext";
 //   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 // ];
 
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+let navigation = [
+  { name: "Dashboard", href: "#", icon: HomeIcon, current: false },
   {
     name: "Inventory",
     icon: UsersIcon,
     current: false,
     children: [
       { name: "Dashboard", href: "/inventory", current: false },
+      { name: "Products", href: "/inventory/products", current: false },
       { name: "Human Resources", href: "#", current: false },
       { name: "Customer Success", href: "#", current: false },
     ],
@@ -75,11 +78,28 @@ function classNames(...classes: string[]) {
 }
 
 const Sidebar = () => {
+  const pathname = usePathname();
   const { sidebarOpen, setSidebarOpen } = useSidebar();
 
   React.useEffect(() => {
-    console.log("sidebarOpen", sidebarOpen);
-  }, [sidebarOpen]);
+    navigation = navigation.map((item) => {
+      if (item.href === pathname && !item.children) {
+        return { ...item, current: true };
+      } else if (item.children) {
+        let isItemCurrent = false;
+        item.children = item.children.map((subItem) => {
+          if (subItem.href === pathname) {
+            isItemCurrent = true;
+            item.current = true;
+            return { ...subItem, current: true };
+          }
+          return { ...subItem, current: false };
+        });
+        return { ...item };
+      }
+      return { ...item };
+    });
+  }, [pathname]);
 
   return (
     <React.Fragment>

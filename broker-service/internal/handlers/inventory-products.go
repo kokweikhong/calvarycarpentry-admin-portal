@@ -43,6 +43,7 @@ func (h *inventoryProductHandler) List(w http.ResponseWriter, r *http.Request) {
 	slog.Info("Successfully listed inventory products", "inventoryProducts", inventoryProducts)
 
 	h.jsonHandler.WriteJSON(w, http.StatusOK, inventoryProducts)
+
 }
 
 func (h *inventoryProductHandler) Get(w http.ResponseWriter, r *http.Request) {
