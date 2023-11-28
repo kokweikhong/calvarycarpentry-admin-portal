@@ -4,10 +4,10 @@ export const InventoryOutgoingSchema = z.object({
   id: z.number(),
   incomingID: z.number().min(1, { message: "Record is required." }),
   status: z.string(),
-  quantity: z.number().min(1, { message: "Quantity is required." }),
+  quantity: z.number().min(0.01, { message: "Quantity is required." }),
   convertedQuantity: z
     .number()
-    .min(1, { message: "Converted quantity is required." }),
+    .min(0.01, { message: "Converted quantity is required." }),
   cost: z.number(),
   refNo: z.string().min(5, { message: "Reference number is required." }),
   refDoc: z
